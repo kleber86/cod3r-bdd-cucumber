@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
         plugin = "pretty",
         monochrome = true,
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        dryRun = false
+        dryRun = false,
+        features = {"C:\\dev\\cod3r-bdd-cucumber\\src\\test\\java"}
 )
 public class Runner {
 }
