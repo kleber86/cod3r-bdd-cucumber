@@ -1,3 +1,5 @@
+package br.estudos.runners;
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -8,7 +10,8 @@ import org.junit.runner.RunWith;
         monochrome = true,
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         dryRun = false,
-        features = {"C:\\dev\\cod3r-bdd-cucumber\\src\\test\\java"}
+        features = "src/test/resources/features/aprender_cucumber.feature",
+        glue = "br.estudos.steps"
 )
 public class Runner {
 }
