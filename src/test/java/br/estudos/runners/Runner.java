@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         monochrome = true,
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         dryRun = false,
-        features = "src/test/resources/features/aprender_cucumber.feature",
+        features = "src/test/resources/features/alugar_filme.feature",
         glue = "br.estudos.steps"
 )
 public class Runner {
