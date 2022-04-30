@@ -19,20 +19,16 @@ Funcionalidade: Alugar Filmes
     Então não será possivel por falta de estoque
     E o estoque do filme será 0 unidade
 
-  Cenario: Deve dar condições especiais para categoria extendida
+  Esquema do Cenario: Deve dar condições conforme tipo de aluguel
     Dado um filme em estoque de 2 unidades
-    E que o preço do alguel seja R$ 4,00
-    E que o tipo do aluguel seja extendido
+    E que o preço do alguel seja R$ <preco>
+    E que o tipo do aluguel seja <tipo>
     Quando alugar
-    Então o preço do aluguel será R$ 8,00
-    E a data de entrega será em 3 dias
-    E a pontuação recebida será de 2 pontos
+    Então o preço do aluguel será R$ <valor>
+    E a data de entrega será em <qtdDias> dias
+    E a pontuação recebida será de <pontuacao> pontos
 
-  Cenario: Deve dar alugar para categoria comum
-    Dado um filme em estoque de 2 unidades
-    E que o preço do alguel seja R$ 4,00
-    E que o tipo do aluguel seja comum
-    Quando alugar
-    Então o preço do aluguel será R$ 4,00
-    E a data de entrega será em 1 dia
-    E a pontuação recebida será de 1 pontos
+    Exemplos:
+      | preco | tipo      | valor | qtdDias | pontuacao |
+      | 4     | extendido | 8     | 3       | 2         |
+      | 4     | comum     | 4     | 1       | 1         |

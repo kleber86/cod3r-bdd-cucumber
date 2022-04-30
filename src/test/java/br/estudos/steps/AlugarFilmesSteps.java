@@ -2,6 +2,7 @@ package br.estudos.steps;
 
 import br.estudos.entidades.Filme;
 import br.estudos.entidades.NotaAluguel;
+import br.estudos.entidades.TipoAluguel;
 import br.estudos.service.AluguelService;
 import br.estudos.utils.DateUtils;
 import io.cucumber.java.pt.Dado;
@@ -10,7 +11,6 @@ import io.cucumber.java.pt.Quando;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -21,7 +21,7 @@ public class AlugarFilmesSteps {
     private AluguelService aluguel = new AluguelService();
     private NotaAluguel notaAluguel;
     private String erro;
-    private String tipoAluguel;
+    private TipoAluguel tipoAluguel = TipoAluguel.COMUM;
 
     @Dado("um filme em estoque de {int} unidades")
     public void umFilmeEmEstoqueDeUnidades(Integer int1) {
@@ -38,7 +38,7 @@ public class AlugarFilmesSteps {
     public void alugar() {
         try {
             notaAluguel = aluguel.alugar(filme, tipoAluguel);
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             erro = e.getMessage();
         }
     }
@@ -61,7 +61,9 @@ public class AlugarFilmesSteps {
 
     @Dado("que o tipo do aluguel seja (.*)$")
     public void queOTipoDoAluguelSejaExtendido(String tipo) {
-        tipoAluguel = tipo;
+        tipoAluguel = tipo.equals("semanal") ? TipoAluguel.SEMANAL :
+                tipo.equals("extendido") ? TipoAluguel.EXTENDIDO :
+                         TipoAluguel.COMUM;
     }
 
     @Então("a data de entrega será em (\\d+) dias?$")
@@ -75,6 +77,6 @@ public class AlugarFilmesSteps {
 
     @Então("a pontuação recebida será de {int} pontos")
     public void aPontuaçãoRecebidaSeráDePontos(Integer int1) {
-       assertEquals(int1, notaAluguel.getPontuacao());
+        assertEquals(int1, notaAluguel.getPontuacao());
     }
 }
