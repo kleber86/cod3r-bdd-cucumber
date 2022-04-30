@@ -6,7 +6,10 @@ Funcionalidade: Alugar Filmes
   Para controlar preços e datas de entrega
 
   Cenario: Deve alugar um filme com sucesso
-    Dado um filme em estoque de 2 unidades
+    Dado um filme
+      | estoque | 2     |
+      | preco   | 3.0   |
+      | tipo    | comum |
     E que o preço do alguel seja R$ 3.00
     Quando alugar
     Então o preço do aluguel será R$ 3.00

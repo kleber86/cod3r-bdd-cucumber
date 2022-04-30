@@ -12,6 +12,7 @@ import io.cucumber.java.pt.Quando;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,7 +22,7 @@ public class AlugarFilmesSteps {
     private AluguelService aluguel = new AluguelService();
     private NotaAluguel notaAluguel;
     private String erro;
-    private TipoAluguel tipoAluguel = TipoAluguel.COMUM;
+    private TipoAluguel tipoAluguel;
 
     @Dado("um filme em estoque de {int} unidades")
     public void umFilmeEmEstoqueDeUnidades(Integer int1) {
@@ -78,5 +79,18 @@ public class AlugarFilmesSteps {
     @Então("a pontuação recebida será de {int} pontos")
     public void aPontuaçãoRecebidaSeráDePontos(Integer int1) {
         assertEquals(int1, notaAluguel.getPontuacao());
+    }
+
+    @Dado("um filme")
+    public void umFilme(io.cucumber.datatable.DataTable dataTable) {
+        Map<String, String> map = dataTable.asMap(String.class, String.class);
+        filme = new Filme();
+        filme.setEstoque(Integer.parseInt(map.get("estoque")));
+        filme.setAluguel(Double.parseDouble(map.get("preco")));
+
+        String tipo = map.get("tipo");
+        tipoAluguel = tipo.equals("semanal") ? TipoAluguel.SEMANAL :
+                tipo.equals("extendido") ? TipoAluguel.EXTENDIDO :
+                        TipoAluguel.COMUM;
     }
 }
