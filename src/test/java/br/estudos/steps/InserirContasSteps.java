@@ -65,4 +65,11 @@ public class InserirContasSteps {
         String validacaoLogin = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
         assertEquals("Conta adicionada com sucesso!", validacaoLogin);
     }
+
+    @Entao("sou notificado que o nome da conta eh obrigatoria")
+    public void souNotificadoQueONomeDaContaEhObrigatoria() {
+        String validacaoLogin = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
+        assertEquals("Informe o nome da conta", validacaoLogin);
+
+    }
 }

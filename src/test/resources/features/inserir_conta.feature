@@ -4,6 +4,7 @@ Funcionalidade: Cadastro de contas
   Gostaria de cadastrar contas
   Para que possa distribuir meu dinheiro de forma mais organizada
 
+  @ignore
   Cenario: Deve inserir uma conta com sucesso
     Dado que estou acessando a aplicacao
     Quando informo o usuario "contato3@kleber.com.br"
@@ -16,7 +17,7 @@ Funcionalidade: Cadastro de contas
     E seleciono Salvar
     Entao a conta eh inserida com sucesso
 
-  @ignore
+
   Cenario: Não deve inserir uma conta sem nome
     Dado que estou acessando a aplicacao
     Quando informo o usuario "contato3@kleber.com.br"
