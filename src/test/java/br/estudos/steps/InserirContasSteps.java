@@ -4,6 +4,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
+import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -78,6 +79,12 @@ public class InserirContasSteps {
     public void souNotificcadoQueJaExisteUmaContaComEsseNome() {
         String validacaoLogin = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
         assertEquals("Já existe uma conta com esse nome!", validacaoLogin);
+    }
+
+    @Então("recebo a mensagem {string}")
+    public void receboAMensagem(String string) {
+        String validacaoLogin = driver.findElement(By.xpath("//div[starts-with(@class, 'alert alert-')]")).getText();
+        assertEquals(string, validacaoLogin);
     }
 
     @After

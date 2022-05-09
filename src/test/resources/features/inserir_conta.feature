@@ -13,18 +13,13 @@ Funcionalidade: Cadastro de contas
     Quando seleciono Contas
     Quando seleciono Adicionar
 
-  Cenario: Deve inserir uma conta com sucesso
-    E informo a conta "Conta de Teste"
+  Esquema do Cenario: Deve validar regras cadastro contas
+    Quando informo a conta "<conta>"
     E seleciono Salvar
-    Entao a conta eh inserida com sucesso
+    Então recebo a mensagem "<mensagem>"
 
-
-  Cenario: Não deve inserir uma conta sem nome
-    E seleciono Salvar
-    Entao sou notificado que o nome da conta eh obrigatoria
-
-
-  Cenario: Não deve inserir uma conta já existente
-    E informo a conta "Conta mesmo nome"
-    E seleciono Salvar
-    Entao sou notificcado que ja existe uma conta com esse nome
+    Exemplos:
+      | conta            | mensagem                           |
+      | Conta de Teste   | Conta adicionada com sucesso!      |
+      |                  | Informe o nome da conta            |
+      | Conta mesmo nome | Já existe uma conta com esse nome! |
