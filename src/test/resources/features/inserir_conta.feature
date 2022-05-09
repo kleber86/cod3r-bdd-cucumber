@@ -4,7 +4,7 @@ Funcionalidade: Cadastro de contas
   Gostaria de cadastrar contas
   Para que possa distribuir meu dinheiro de forma mais organizada
 
-  @ignore
+
   Cenario: Deve inserir uma conta com sucesso
     Dado que estou acessando a aplicacao
     Quando informo o usuario "contato3@kleber.com.br"
@@ -13,7 +13,7 @@ Funcionalidade: Cadastro de contas
     Entao visualizo a pagina inicial
     Quando seleciono Contas
     Quando seleciono Adicionar
-    E informo a conta "Conta de Teste"
+    E informo a conta "Nova conta"
     E seleciono Salvar
     Entao a conta eh inserida com sucesso
 
@@ -38,6 +38,6 @@ Funcionalidade: Cadastro de contas
     Entao visualizo a pagina inicial
     Quando seleciono Contas
     E seleciono Adicionar
-    E informo a conta "Conta de Teste"
+    E informo a conta "Conta mesmo nome"
     E seleciono Salvar
     Entao sou notificcado que ja existe uma conta com esse nome
