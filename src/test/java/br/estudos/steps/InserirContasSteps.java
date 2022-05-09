@@ -1,5 +1,7 @@
 package br.estudos.steps;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
@@ -76,5 +78,10 @@ public class InserirContasSteps {
     public void souNotificcadoQueJaExisteUmaContaComEsseNome() {
         String validacaoLogin = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
         assertEquals("Já existe uma conta com esse nome!", validacaoLogin);
+    }
+
+    @After
+    public void fecharBrowser(){
+        driver.quit();
     }
 }
