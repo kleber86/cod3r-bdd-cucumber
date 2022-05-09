@@ -94,7 +94,7 @@ public class InserirContasSteps {
         assertEquals(string, validacaoLogin);
     }
 
-    @After(order = 1)
+    @After(order = 1, value = "not @unitarios")
     public void screenshot(Scenario cenario){
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
@@ -104,7 +104,7 @@ public class InserirContasSteps {
         }
     }
 
-    @After(order = 0)
+    @After(order = 0, value = "not @unitarios")
     public void fecharBrowser(){
         driver.quit();
     }

@@ -14,9 +14,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
         monochrome = true,
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         dryRun = false,
-        features = "src/test/resources/features/inserir_conta.feature",
+        features = "src/test/resources/features/",
         glue = "br.estudos.steps",
-        tags = "not @ignore"
+        tags = "@unitarios"
 )
 public class Runner {
 
