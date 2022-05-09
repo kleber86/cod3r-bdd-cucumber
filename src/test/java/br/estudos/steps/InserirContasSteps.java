@@ -70,6 +70,11 @@ public class InserirContasSteps {
     public void souNotificadoQueONomeDaContaEhObrigatoria() {
         String validacaoLogin = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
         assertEquals("Informe o nome da conta", validacaoLogin);
+    }
 
+    @Entao("sou notificcado que ja existe uma conta com esse nome")
+    public void souNotificcadoQueJaExisteUmaContaComEsseNome() {
+        String validacaoLogin = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
+        assertEquals("Já existe uma conta com esse nome!", validacaoLogin);
     }
 }

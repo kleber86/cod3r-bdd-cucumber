@@ -29,7 +29,7 @@ Funcionalidade: Cadastro de contas
     E seleciono Salvar
     Entao sou notificado que o nome da conta eh obrigatoria
 
-  @ignore
+
   Cenario: Não deve inserir uma conta já existente
     Dado que estou acessando a aplicacao
     Quando informo o usuario "contato3@kleber.com.br"
@@ -39,5 +39,5 @@ Funcionalidade: Cadastro de contas
     Quando seleciono Contas
     E seleciono Adicionar
     E informo a conta "Conta de Teste"
-    E selecionar Salvar
+    E seleciono Salvar
     Entao sou notificcado que ja existe uma conta com esse nome
